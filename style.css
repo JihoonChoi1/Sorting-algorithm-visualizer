@@ -44,33 +44,15 @@ body {
 }
 
 .bar-container {
-  background-color: gray;
   display: flex;
-  width: 75vw;
-  position: relative;
   height: 75vh;
+  width: 75vw;
+  align-items: flex-end;
+  justify-content: space-between;
+  outline: 1px solid black;
 }
 
 
-.bar1 {
-  width: 30px;
-  display: inline-block;
+.bar {
   background-color: red;
-  height: 300px;
-  border: 2px solid black;
-}
-
-.bar2 {
-  display: inline-block;
-  background-color: red;
-  height: 200px;
-  border: 2px solid black;
-}
-
-.bar3 {
-  display: inline-block;
-}
-
-.bar4 {
-  display: inline-block;
 }
