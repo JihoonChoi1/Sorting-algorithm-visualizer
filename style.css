@@ -39,8 +39,12 @@ body {
 
 .title {
   font-size: 40px;
-  color: green;
+  font-family: "Roboto";
   font-weight: bold;
+}
+
+.name {
+  font-family: "Roboto";
 }
 
 .bar-container {
@@ -49,10 +53,10 @@ body {
   width: 75vw;
   align-items: flex-end;
   justify-content: space-between;
-  outline: 1px solid black;
 }
 
 
 .bar {
-  background-color: red;
+  background-color: black;
+  border-radius: 2px;
 }
