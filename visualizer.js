@@ -29,7 +29,6 @@ function randomizeBar() {
 const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
 
 async function selectionSort() {
-	let minBarInd = 0;
   	for(let i = 0 ; i < array.length-1 ; i++) {
       	let minInd = i;
       	for(let j = i+1 ; j < array.length ; j++) {
@@ -46,11 +45,39 @@ async function selectionSort() {
 		document.querySelector(`.bar${i}`).style.backgroundColor = "green";
   	}
 	document.querySelector(`.bar${array.length-1}`).style.backgroundColor = "green";
-	//displayBars();
+}
+
+async function bubbleSort() {
+
+	for(let i = array.length-1 ; i > 0 ; i--) {
+		let swapped = false;
+		for(let j = 0 ; j < i ; j++) {
+			if(array[j] > array[j+1]) {
+				swapped = true;
+				let temp = array[j+1];
+				array[j+1] = array[j];
+				array[j] = temp;
+				document.querySelector(`.bar${j}`).style.height = array[j] + "%";
+				document.querySelector(`.bar${j+1}`).style.height = array[j+1] + "%";
+			}
+		}
+		await sleep(30);
+		document.querySelector(`.bar${i}`).style.backgroundColor = "green";
+		if(!swapped) {
+			let uncoloredBars = document.querySelectorAll('.bar');
+			while(i >= 0) {
+				await sleep(1);
+				uncoloredBars[i].style.backgroundColor = "green";
+				i--;
+			}
+			return;
+		}
+	}
 }
 
 randomizeBar();
 
-document.querySelector(".sort-button").addEventListener("click", selectionSort);
+document.querySelector(".sel-sort-button").addEventListener("click", selectionSort);
+document.querySelector(".bubb-sort-button").addEventListener("click", bubbleSort);
 document.querySelector(".randomize-button").addEventListener("click", randomizeBar);
 
